@@ -17,6 +17,7 @@ h1.addEventListener("mouseenter", bounceAnimation);
 //EVITAR QUE EL VH SEA MAYOR A LA PANTALLA DE LOS CELULARES//
 const appHeight = () => {
     document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+    console.log(document.documentElement.style.getPropertyValue('--app-height'));
 }
 appHeight();
 window.addEventListener('resize', appHeight);
