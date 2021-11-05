@@ -1,0 +1,93 @@
+#skills {
+    .content {
+        overflow: hidden;
+        padding: 50px 0px 10px;
+        .lenguajes {
+            max-width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+}
+
+.circular-progress {
+    &, &::before, &::after {
+        width: 12rem;
+        height: 12rem;
+        border-radius: 50%;
+    }
+    margin: 0px 50px;
+    position: relative;
+    transform: rotate(90deg);
+    background: linear-gradient(0deg, #fff 50%, rgba(#fff, .2) 50%);
+    &::before, &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: white;
+        text-align: center;
+    }
+    &::before {
+        padding: .5em;
+        box-sizing: border-box;
+        font-size: 2rem;
+        line-height: 8rem;
+        font-weight: bold;
+    }
+    &::after {
+        line-height: 13rem;
+    }
+}
+
+@function progress($percent) {
+    @return #{$percent/100 * 180}deg;
+}
+
+@mixin circular-progress($percent, $skill, $color, $bgcolor) {
+    $progress: progress($percent);
+    transform: rotate($progress);
+    background: linear-gradient(0deg, $color 50%, rgba($color, .2) 50%);
+    &::after, &::before {
+        color: $color;
+    }
+    &::before {
+        content: "#{$skill}";
+        background: $bgcolor content-box;
+        transform: rotate(-#{$progress});
+    }
+    &:after {
+        content: "#{$percent}%";
+        background: linear-gradient(transparent 50%, $bgcolor 50%);
+        transform: scale(1.1) rotate(-#{$progress});
+    }
+}
+
+.html {
+    @include circular-progress(95, "HTML5", orange, #fff);
+}
+
+.css {
+    @include circular-progress(90, "CSS", blue, #fff);
+}
+
+.javascript {
+    @include circular-progress(70, "JavaScript", yellow, #fff);
+}
+
+.scss {
+    @include circular-progress(15, "SCSS", magenta, #fff);
+}
+
+.php {
+    @include circular-progress(10, "PHP", rebeccapurple, #fff);
+}
+
+.react {
+    @include circular-progress(5, "React", #2196f3, #fff);
+}
+
+.nodejs {
+    @include circular-progress(5, "NodeJS", green, #fff);
+}

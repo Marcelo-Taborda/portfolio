@@ -1,0 +1,28 @@
+main {
+    .section {
+        h2 {
+            height: 150px;
+            font-size: 2rem;
+            background-color: #1c1c1c;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .icon {
+                width: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 15px;
+            }
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 0px;
+            background-color: white;
+        }
+    }
+}

@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* VARIABLE*/
+$app-height: 100vh;
+
+/*FONDO DE LA PAGINA*/
+body {
+    background: url(../img/powerImage00.jpg) no-repeat fixed;
+    background-size: auto $app-height;
+}
+
+/* Header de la pagina */
+header {
+    width: 100%;
+    height: $app-height;
+    background: linear-gradient(to right, rgba(0, 0, 0, .5), rgb(10, 15, 15) 50%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    * {
+        color: white;
+    }
+    .presentation {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            background-color: #1c1c1c;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 20rem;
+            height: 20rem;
+            border-radius: 50%;
+            border: 5px solid rebeccapurple;
+            box-shadow: 0px 0px 50px rebeccapurple;
+            position: sticky;
+            top: 0px;
+            transition: .3s;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            a {
+                text-decoration: none;
+            }
+            .title, .salute {
+                font-size: 2.5rem;
+                font-weight: bold;
+            }
+            .description {
+                font-size: 1.25rem;
+            }
+            .line {
+                width: 175px;
+                height: 3px;
+                background-color: white;
+                margin: 15px;
+            }
+        }
+        h1:hover {
+            box-shadow: 0px 0px 100px rebeccapurple;
+        }
+    }
+    .menu {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 75px;
+        position: sticky;
+        top: 0px;
+        right: 0px;
+        nav {
+            a {
+                text-decoration: none;
+                margin-left: 25px;
+                padding: 5px 10px;
+                border-bottom: 3px solid transparent;
+                transition: .3s;
+                -webkit-tap-highlight-color: transparent;
+            }
+            a:hover {
+                text-shadow: 0px 0px 10px rebeccapurple;
+                color: rebeccapurple;
+                border-bottom: 3px solid rebeccapurple;
+                transition: .3s;
+            }
+            a:first-child {
+                margin-left: 0px;
+            }
+        }
+    }
+    .chevronDown, .chevronUp {
+        width: 50px;
+        position: absolute;
+        left: calc(50% - 25px);
+        bottom: 30px;
+        cursor: pointer;
+        transition: .3s;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .chevronUp {
+        background-color: white;
+        border-radius: 50%;
+        position: fixed;
+    }
+    .chevronDown:hover {
+        transform: translateY(10px);
+    }
+    
+    .chevronUp:hover {
+        transform: translateY(-10px);
+    }
+    .icon {
+        width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 15px;
+    }
+}
+
+/* ANIMACION DEL CIRCULO */
+.bounceInAnimation {
+    -webkit-animation-duration:1s;
+    animation-duration:1s;
+    -webkit-animation-name:bounceIn;
+    animation-name:bounceIn
+}
+@keyframes bounceIn{
+    0%,20%,40%,60%,80%,to {
+        -webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);
+        animation-timing-function:cubic-bezier(.215,.61,.355,1)
+    }
+    0%{
+        -webkit-transform:scale3d(1,1,1);
+        transform:scale3d(1,1,1)
+    }
+    20%{
+        -webkit-transform:scale3d(1.1,1.1,1.1);
+        transform:scale3d(1.1,1.1,1.1)
+    }
+    40%{
+        -webkit-transform:scale3d(.9,.9,.9);
+        transform:scale3d(.9,.9,.9)
+    }
+    60%{
+        -webkit-transform:scale3d(1.03,1.03,1.03);
+        transform:scale3d(1.03,1.03,1.03)
+    }
+    80%{
+        -webkit-transform:scale3d(.97,.97,.97);
+        transform:scale3d(.97,.97,.97)
+    }
+    to{
+        -webkit-transform:scaleX(1);
+        transform:scaleX(1)}
+}
+
+/* ICONO FLOTANTE PARA IR AL PRINCIPIO */
+.chevronUp {
+    width: 60px;
+    padding: 10px;
+    position: fixed;
+    right: 50px;
+    bottom: 30px;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 50%;
+    display: none;
+    a {
+        color: rebeccapurple;
+    }
+    -webkit-tap-highlight-color: transparent;
+    &:hover {
+        transform: translateY(-10px);
+        transition: .3s;
+    }
+}
+
+/* Media queries del header */
+@media screen and (max-width: 1000px) {
+    .header {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, .5), rgb(10, 15, 15) 70%);
+        flex-direction: column;
+    }
+
+    .header nav {
+        display: flex;
+    }
+
+    .header nav a {
+        display: flex;
+        font-size: .8rem;
+    }
+
+    .header .presentation {
+        width: 100%;
+        height: 50%;
+        align-items: flex-end;
+    }
+
+    .header .menu {
+        width: 100%;
+        height: 50%;
+    }
+
+    .header h1 {
+        width: 17rem;
+        height: 17rem;
+        border-radius: 50%;
+        border: 5px solid rebeccapurple;
+        box-shadow: 0px 0px 50px rebeccapurple;
+        position: sticky;
+        top: 0px;
+        transition: .3s;
+        cursor: pointer;
+        margin-bottom: 0px;
+    }
+
+    .header h1 .title, .salute {
+        font-size: 1.75rem;
+        font-weight: bold;
+    }
+    .header h1 .description {
+        font-size: 1rem;
+    }
+    .header h1 .line {
+        width: 125px;
+        height: 2px;
+        background-color: white;
+        margin: 15px;
+    }
+    .header .chevronDown {
+        width: 30px;
+        left: calc(50% - 15px);
+    }
+    .chevronUp {
+        width: 50px;
+        right: 25px;
+        bottom: 25px;
+    }
+}
+
+/* Contenido de la pagina => "indexMain"*/
+
+/* Seccion Contacto => "indexContact"*/
+
+/* Seccion Skills => "indexSkills"*/
+
+/* Sección Sobre Mi */
+#aboutMe .content {
+    .aboutMe {
+        max-width: 1000px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        .imgMT {
+            width: 300px;
+            margin: auto;
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+        .description {
+            max-width: 700px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h3 {
+                text-align: center;
+                font-size: 2.5rem;
+                font-weight: bold;
+                margin-bottom: 40px;
+            }
+            p {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+                text-align: justify;
+                line-height: 1.5;
+            }
+            a {
+                font-size: 1.2rem;
+                text-decoration: none;
+                color: black;
+                margin-top: 15px;
+                font-weight: bold;
+                padding: 15px 30px;
+                border: 3px solid #1c1c1c;
+                transition: .3s;
+                &:hover {
+                    background-color: #1c1c1c;
+                    color: white;
+                    transition: .3s;
+                }
+            }
+        }
+    }
+}
+/* Seccion portfolio*/
+#portfolio .content {
+    .portfolio {
+        max-width: 1400px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .project {
+            width: 400px;
+            margin-bottom: 40px;
+            .imgProject {
+                border-left: 3px solid #1c1c1c;
+                border-right: 3px solid #1c1c1c;
+                border-top: 3px solid #1c1c1c;
+                img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+            .infoProject {
+                border-left: 3px solid #1c1c1c;
+                border-right: 3px solid #1c1c1c;
+                border-bottom: 3px solid #1c1c1c;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                h3 {
+                    text-align: center;
+                    font-size: 1.75rem;
+                    margin-bottom: 20px;
+                }
+                p {
+                    text-align: justify;
+                    font-size: 1.1rem;
+                    line-height: 1.5;
+                    margin-bottom: 20px;
+                }
+                a {
+                    font-size: 1.2rem;
+                    text-decoration: none;
+                    color: black;
+                    font-weight: bold;
+                    padding: 15px 30px;
+                    border: 3px solid #1c1c1c;
+                    transition: .3s;
+                    &:hover {
+                        background-color: #1c1c1c;
+                        color: white;
+                        transition: .3s;
+                    }
+                    &:nth-last-child(2) {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Pie de pagina */
+footer {
+    background-color: #1c1c1c;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    .endPage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        span {
+            font-size: 1rem;
+            text-align: center;
+            font-style: italic;
+        }
+    }
+}
+
